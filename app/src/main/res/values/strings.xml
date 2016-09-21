@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ProjetoTalkRedes</string>
+    <string name="title">Talk Simple</string>
+    <string name="msg">Informe a mensagem a enviar</string>
+    <string name="udpTab">UDP</string>
+    <string name="tcpTab">TCP</string>
+    <string name="naoTab">Nao clique</string>
+    <string name="nada">Ops.. Voce nao devia estar aqui</string>
 </resources>
