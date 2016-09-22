@@ -1,7 +1,4 @@
 /*Este codigo do servidor foi passado pelo professor da disciplina, inicialmente ele faz a letra fica em caixa alta*/
-import java.io.*;
-import java.net.*;
-
 class UDPServer{
     public static void main(String args[]) throws Exception{
         /*Cria socket de datagram na porta 9876*/
