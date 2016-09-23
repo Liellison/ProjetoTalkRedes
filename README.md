@@ -1,3 +1,6 @@
+[![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=14)
+
+
 # Talk Simple
 
 O app tem como objetivo realizar a troca de strings entre dois telefones com o sistema operacional Android.
