@@ -37,6 +37,41 @@
 <p>Inicialmente o projeto saiu de um trabalho na disciplina de Redes de Computadores no semestre 2016.1 na UERN-Natal.</p>
 
 <p>O objetivo do projeto da disciplina era de usar tanto um servidor TCP como um UDP para realizar calculos numericos, onde o usuario iria dar valores e o servidor iria retornar com o calculo. Porem, me senti mais motivado a realizar a troca de strings.</p>
+
+<h2>
+<a id="descrição" class="anchor" href="#descri%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Descrição</h2>
+
+<p>O professor da disciplina passou um <em>servidor</em> na qual tinha a função de pegar uma string e colocar em caixa alta, como podemos ver no codigo abaixo:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">class</span> <span class="pl-en">TCPServer</span>{
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> <span class="pl-v">argv</span>[]) <span class="pl-k">throws</span> <span class="pl-smi">Exception</span>{
+        <span class="pl-smi">String</span> clienteSentence;
+        <span class="pl-smi">String</span> capitalizerSentence;
+        <span class="pl-c">/*Cria socket de apresentaçao na porta 6789*/</span>
+        <span class="pl-smi">ServerSocket</span> welcomeSocket <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ServerSocket</span>(<span class="pl-c1">6798</span>);
+        <span class="pl-k">while</span> (<span class="pl-c1">true</span>){
+        <span class="pl-c">/*Espera no socket de apresentacao pelo contato do cliente*/</span>
+            <span class="pl-smi">Socket</span> connectionSocket <span class="pl-k">=</span> welcomeSocket<span class="pl-k">.</span>accept();
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span> IP: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> connectionSocket<span class="pl-k">.</span>getInetAddress() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> - Conectado!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+        <span class="pl-c">/*Cria cadeia de entrada, conectada ao socket*/</span>
+            <span class="pl-smi">BufferedReader</span> inFromClient <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">BufferedReader</span>(<span class="pl-k">new</span> <span class="pl-smi">InputStreamReader</span>(connectionSocket<span class="pl-k">.</span>getInputStream()));
+        <span class="pl-c">/*Cria cadeia de saida, conectada ao socket*/</span>
+            <span class="pl-smi">DataOutputStream</span> outToClient <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">DataOutputStream</span>(connectionSocket<span class="pl-k">.</span>getOutputStream());
+            <span class="pl-smi">InetAddress</span> <span class="pl-smi">IPAddress</span> <span class="pl-k">=</span> connectionSocket<span class="pl-k">.</span>getInetAddress();
+            <span class="pl-k">int</span> port <span class="pl-k">=</span> connectionSocket<span class="pl-k">.</span>getPort();
+            <span class="pl-c">/*Le linha do socket*/</span>
+            clienteSentence <span class="pl-k">=</span> inFromClient<span class="pl-k">.</span>readLine();
+        <span class="pl-c">/*Coloca o que esta na linha do socket em caixa alta*/</span>
+            capitalizerSentence <span class="pl-k">=</span> clienteSentence<span class="pl-k">.</span>toUpperCase()<span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>;
+        <span class="pl-c">/*Escreve linha no socket*/</span>
+            outToClient<span class="pl-k">.</span>writeBytes(capitalizerSentence);
+        }
+    }
+}</pre></div>
+
+<p>E os alunos iriam mudar o servidor para ele retorna a soma de numeros.</p>
+
+<p><img src="https://github.com/Liellison/ProjetoTalkRedes/blob/master/screenshot/Screenshot_1474719408.png" alt="Image of homescreen"></p>
       </section>
     </div>
     <footer>
