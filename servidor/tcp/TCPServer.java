@@ -12,6 +12,7 @@ class TCPServer{
         String capitalizerSentence;
         /*Cria socket de apresentaçao na porta 6789*/
         ServerSocket welcomeSocket = new ServerSocket(6798);
+        System.out.println("Eu estou aqui");
         while (true){
         /*Espera no socket de apresentacao pelo contato do cliente*/
             Socket connectionSocket = welcomeSocket.accept();

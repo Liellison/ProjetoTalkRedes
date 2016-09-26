@@ -11,9 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by filip on 8/21/2015.
- */
 public class Fragment1 extends Fragment {
     @Nullable
     @Override
