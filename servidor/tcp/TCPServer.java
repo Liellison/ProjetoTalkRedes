@@ -19,6 +19,8 @@ class TCPServer{
             System.out.println("\n IP: " + connectionSocket.getInetAddress() + " - Conectado!\n");
         /*Cria cadeia de entrada, conectada ao socket*/
             BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+            BufferedReader  in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
         /*Cria cadeia de saida, conectada ao socket*/
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
             InetAddress IPAddress = connectionSocket.getInetAddress();
